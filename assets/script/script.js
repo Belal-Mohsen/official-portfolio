@@ -1,3 +1,33 @@
+// mode button
+let lightMode = localStorage.getItem("lightMode");
+const lightModeToggle = document.querySelector("#mode-btn");
+
+const enableLightMode = () => {
+  document.body.classList.add("lightmode");
+  localStorage.setItem("lightMode", "enabled");
+}
+const disableLightMode = () => {
+  document.body.classList.remove("lightmode");
+  localStorage.setItem("lightMode", null);
+}
+
+if(lightMode === "enabled"){
+  enableLightMode();
+  document.getElementById('mode-img').src='assets/icons/dark.svg';
+}
+
+lightModeToggle.addEventListener("click", () =>{
+  lightMode = localStorage.getItem("lightMode");
+  if(lightMode !== "enabled"){
+    enableLightMode();
+    document.getElementById('mode-img').src='assets/icons/dark.svg';
+  }else{
+    disableLightMode();
+    document.getElementById('mode-img').src='assets/icons/light.svg';
+  }
+});
+
+
 /*nav-bar*/
 let burgerMenu = document.querySelector('#burger-menu');
 let navbar = document.querySelector(".navbar")
@@ -44,15 +74,3 @@ window.onscroll = () =>{
       })
   })()
 
-// const sections2 = document.querySelectorAll(".section");
-// sections2.forEach(sec => {
-// sec.addEventListener('mousemove', (e) =>{
-//     const rect = sec.getBoundingClientRect();
-
-//     const left = e.clientX - rect.left;
-//     const top = e.clientY - rect.top;
-
-//     sec.style.setProperty("--left", `${left}px`);
-//     sec.style.setProperty("--top", `${top}px`);
-// });
-// });

@@ -18,8 +18,13 @@
   --transition: 0.3s;
   --left: 0px;
   --top: 0px;
+  --mode: dark;
 }
-
+.lightmode{
+  --bg-color:#fff;
+  --primary-color : #1f242d;
+  --second-bg-color : #eceff2;
+}
 /* Variables end */
 
 html {
@@ -142,7 +147,7 @@ span {
 
 /* Common classes */
 
-.btn {
+.my-btn {
   display: inline-block;
   /* transition: 0.5 ease; */
   padding: 1rem 2.8rem;
@@ -155,7 +160,7 @@ span {
   font-weight: 800;
 }
 
-.btn:hover {
+.my-btn:hover {
   box-shadow: none;
 }
 
@@ -163,6 +168,9 @@ span {
   font-size: 5.5rem;
 }
 
+#mode-btn{
+  background-color: transparent;
+}
 /* hero section */
 .hero {
   display: flex;
@@ -427,7 +435,7 @@ span {
   resize: none;
 }
 
-.contact form .btn {
+.contact form .my-btn {
   margin-top: 2rem;
   cursor: pointer;
 }
@@ -695,7 +703,8 @@ span {
     left: 0;
     width: 100%;
     padding: 1rem 3%;
-    background-color: rgba(31, 36, 45, 0.9);
+    background-color: var(--bg-color);
+    opacity: 0.9;
     border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
     box-shadow: 0 3px 5px var(--second-bg-color);
     display: none;
